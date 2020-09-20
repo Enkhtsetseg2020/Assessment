@@ -1,0 +1,16 @@
+tests/FloatingMenuTest.class
+tests/LoginSuccessTest.class
+tests/DynamicControlsTest.class
+tests/LoginFailureTest.class
+tests/JavaScriptAlertsTest.class
+tests/IFrameTest.class
+tests/DragDropTest.class
+tests/FileDownload.class
+tests/DropDownTest.class
+tests/JavaScriptErrorTest.class
+tests/DynamicLoadingTest.class
+tests/ContextMenuTest.class
+tests/DynamicContentTest.class
+tests/FileUploadTest.class
+tests/MouseHoverTest.class
+tests/ChechBoxesTest.class

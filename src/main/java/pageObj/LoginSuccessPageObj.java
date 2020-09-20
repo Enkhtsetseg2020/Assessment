@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 import core.Base;
 import utilities.DriverUtility;
 
-public class LoginPageObj extends Base {
+public class LoginSuccessPageObj extends Base {
 
-	public LoginPageObj() {
+	public LoginSuccessPageObj() {
 
 		PageFactory.initElements(driver, this);
 	}

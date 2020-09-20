@@ -17,13 +17,15 @@ public class Base {
 	public static WebDriver driver;
 	public static Properties properties;
 
-	private String propertyPath = ".src/test/resources/properties/projectProperty.properties";
+	private String userDirectory = System.getProperty("user.dir");
+	private String ppFile = ".src/test/resources/properties/projectProperty.properties";
+	private String pathToPP = userDirectory + ppFile;
 
 	public Base() {
 
 		BufferedReader reader;
 		try {
-			reader = new BufferedReader(new FileReader(propertyPath));
+			reader = new BufferedReader(new FileReader(ppFile));
 			properties = new Properties();
 
 			try {
@@ -61,6 +63,7 @@ public class Base {
 		String implicitWait = properties.getProperty("implicitWait");
 		return Long.parseLong(implicitWait);
 	}
+
 	public static String getUserName() {
 		String userName = properties.getProperty("username");
 		return userName;
@@ -70,20 +73,26 @@ public class Base {
 		String password = properties.getProperty("password");
 		return password;
 	}
-	
-	public static void initializeDriver() {
-		
-		WebDriverManager.chromedriver().setup();
-		driver= new ChromeDriver(); 
-	    driver.manage().window().maximize();
-	    driver.manage().deleteAllCookies();
-	    driver.manage().timeouts().pageLoadTimeout(Base.getpageLoadTime(), TimeUnit.SECONDS); 
-	    driver.manage().timeouts().implicitlyWait(Base.getImplicitWait(), TimeUnit.SECONDS); 
-	    
-		
+
+	public static String getWrongUserName() {
+		String userName = properties.getProperty("WrongUsername");
+		return userName;
 	}
-	
-	
-	
+
+	public static String getWrongPassword() {
+		String password = properties.getProperty("WrongPassword");
+		return password;
+	}
+
+	public static void initializeDriver() {
+
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(Base.getpageLoadTime(), TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Base.getImplicitWait(), TimeUnit.SECONDS);
+
+	}
 
 }
